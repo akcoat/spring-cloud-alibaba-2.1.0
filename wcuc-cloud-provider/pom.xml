@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>wcuc-cloud</artifactId>
+        <groupId>com.netintech</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>wcuc-cloud-provider</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>wcuc-cloud-log-consumer</module>
+        <module>wcuc-cloud-login</module>
+        <module>module-1</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <mybatis-plus-boot-starter.version>3.0.5</mybatis-plus-boot-starter.version>
+        <dynamic-datasource-spring-boot-starter.version>2.5.0</dynamic-datasource-spring-boot-starter.version>
+        <java.version>1.8</java.version>
+        <velocity.version>2.0</velocity.version>
+        <sqlserver.version>4.0</sqlserver.version>
+        <oracle.version>11.2.0.3</oracle.version>
+        <quartz.version>2.3.0</quartz.version>
+        <mysql.version>5.1.46</mysql.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- mybatis-plus begin -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+            <!-- 多数据源配置  -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-datasource-spring-boot-starter.version}</version>
+            </dependency>
+
+            <!--mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <!-- sqlserver -->
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>sqljdbc4</artifactId>
+                <version>${sqlserver.version}</version>
+            </dependency>
+
+            <!-- oracle-->
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <version>${oracle.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <!-- velocity 模板引擎, 默认 -->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>2.3.28</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+</project>

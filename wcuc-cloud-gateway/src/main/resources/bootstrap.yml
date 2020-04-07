@@ -1,0 +1,35 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: wcuc-cloud-gateway
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.56.5:8848 #nacos 服务注册中心
+      config:
+        server-addr: 192.168.56.5:8848 # 作为配置中心地址
+        file-extension: yaml # 指定yaml格式的配置
+        group: dev_group
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: module-1-gateway
+          uri: lb://module-1
+          predicates:
+            - Path=/module1/**
+
+#    sentinel:
+#      transport:
+#        #配置sentinel dashboard的地址
+#        dashboard: 192.168.56.5:8080
+#        port: 8719
+
