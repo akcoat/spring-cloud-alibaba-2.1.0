@@ -27,6 +27,14 @@ spring:
           predicates:
             - Path=/module1/**
 
+
+logging:
+  level:
+    com:
+      alibaba:
+        nacos:
+          client:
+            naming: error
 #    sentinel:
 #      transport:
 #        #配置sentinel dashboard的地址

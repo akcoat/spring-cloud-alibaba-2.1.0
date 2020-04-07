@@ -15,6 +15,7 @@
     <modules>
         <module>wcuc-cloud-provider</module>
         <module>wcuc-cloud-gateway</module>
+        <module>wcuc-common</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

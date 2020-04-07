@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.netintech.shiro.config.ShiroRedisAutoConfigure,\
+  com.netintech.shiro.config.shiroAutoConfigure
