@@ -15,6 +15,7 @@
         <module>wcuc-cloud-log-consumer</module>
         <module>wcuc-cloud-login</module>
         <module>module-1</module>
+        <module>sharding-jdbc-demo</module>
     </modules>
 
     <properties>

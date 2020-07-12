@@ -21,15 +21,13 @@ import java.util.Map;
 
 public class MyGenerator {
 
-    private static String packageName="com.netintech.login";  //模块名称
-    private static String modelName="test";    //模块名称
-    private static String authorName="zjw";     //作者
-    private static String[] includeTableNames=new String[] { "users" }; //需要生成的表名字
+    private static String packageName = "com.netintech.login";  //模块名称
+    private static String modelName = "test";    //模块名称
+    private static String authorName = "zjw";     //作者
+    private static String[] includeTableNames = new String[]{"users"}; //需要生成的表名字
     //    private static String[] excludeTableNames=new String[] { "test_users" }; //需要排除生成的表名字
     //private static String[] prefixs=new String[] { "t_"}; //table前缀
-   private static String path = MyGenerator.class.getResource("/").getPath().replace("/target/classes/","");
-
-
+    private static String path = MyGenerator.class.getResource("/").getPath().replace("/target/classes/", "");
 
 
     public static void main(String[] args) {
@@ -37,7 +35,7 @@ public class MyGenerator {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        gc.setOutputDir(path+"/src/main/java");//输出目录
+        gc.setOutputDir(path + "/src/main/java");//输出目录
         gc.setFileOverride(true);// 是否覆盖文件
         gc.setActiveRecord(true);// 不需要ActiveRecord特性的请改为false
         gc.setEnableCache(false);// XML 二级缓存
@@ -63,15 +61,15 @@ public class MyGenerator {
 
 //        //mysql================
         dsc.setDbType(DbType.MYSQL);
-        dsc.setTypeConvert(new MySqlTypeConvert(){
+        dsc.setTypeConvert(new MySqlTypeConvert() {
             // 自定义数据库表字段类型转换【可选】
-            public IColumnType processTypeConvert(GlobalConfig globalConfig,String fieldType) {
+            public IColumnType processTypeConvert(GlobalConfig globalConfig, String fieldType) {
                 System.out.println("转换类型：" + fieldType);
                 // 注意！！processTypeConvert 存在默认类型转换，如果不是你要的效果请自定义返回、非如下直接返回。
-                if ( fieldType.toLowerCase().contains( "date" ) ) {
+                if (fieldType.toLowerCase().contains("date")) {
                     return DbColumnType.DATE;
                 }
-                return super.processTypeConvert(globalConfig,fieldType);
+                return super.processTypeConvert(globalConfig, fieldType);
             }
         });
         dsc.setDriverName("com.mysql.jdbc.Driver");
@@ -105,7 +103,7 @@ public class MyGenerator {
         StrategyConfig strategy = new StrategyConfig();
         // strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
         strategy.setEntityLombokModel(true);//【实体】是否为lombok模型（默认 false）
-       // strategy.setTablePrefix(prefixs);// 此处可以修改为您的表前缀
+        // strategy.setTablePrefix(prefixs);// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
         strategy.setInclude(includeTableNames); // 需要生成的表
         strategy.setRestControllerStyle(true);//restController 风格
@@ -166,7 +164,7 @@ public class MyGenerator {
         focList.add(new FileOutConfig("/templates/mapper.xml.vm") {
             @Override
             public String outputFile(TableInfo tableInfo) {
-                return path+"/src/main/resources/mapper/"+ modelName+"/"+ tableInfo.getEntityName() + "Mapper.xml";
+                return path + "/src/main/resources/mapper/" + modelName + "/" + tableInfo.getEntityName() + "Mapper.xml";
             }
         });
         cfg.setFileOutConfigList(focList);

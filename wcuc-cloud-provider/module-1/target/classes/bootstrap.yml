@@ -8,8 +8,8 @@ spring:
   zipkin:
     base-url: http://localhost:9411
   sleuth:
-      sampler:
-        probability: 1
+    sampler:
+      probability: 1
   cloud:
     nacos:
       discovery:
@@ -23,6 +23,13 @@ spring:
         #配置sentinel dashboard的地址
         dashboard: 192.168.56.5:8080
         port: 8719
+#      log:
+#        dir: ‪D:\log
+#      metric:
+#        file-single-size: 50m
+#        file-total-count: 10
+
+
 
 logging:
   level:

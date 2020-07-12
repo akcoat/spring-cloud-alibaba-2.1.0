@@ -4,9 +4,9 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.netintech.login.test.entity.Users">
-        <id column="username" property="username" />
-        <result column="password" property="password" />
-        <result column="enabled" property="enabled" />
+        <id column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="enabled" property="enabled"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
