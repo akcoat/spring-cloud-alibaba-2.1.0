@@ -1,4 +1,5 @@
-package com.netintech.login;
+
+package com.netintech;
 
 
 import com.baomidou.mybatisplus.annotation.DbType;
@@ -25,7 +26,7 @@ import java.util.Map;
  */
 public class MyGenerator {
 
-    private static String packageName="com.netintech.login";  //模块名称
+    private static String packageName="com.netintech";  //模块名称
     private static String modelName="transaction";    //模块名称
     private static String authorName="zjw";     //作者
     private static String[] includeTableNames=new String[] {"order"}; //需要生成的表名字

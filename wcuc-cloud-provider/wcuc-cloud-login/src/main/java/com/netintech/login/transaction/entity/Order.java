@@ -1,11 +1,9 @@
-package com.netintech.login.test.entity;
+package com.netintech.login.transaction.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
-
 import java.io.Serializable;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -14,31 +12,31 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- *
+ * 
  * </p>
  *
  * @author zjw
- * @since 2020-04-04
+ * @since 2020-08-16
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value = "Users对象", description = "")
-public class Users extends Model<Users> {
+@ApiModel(value="Order对象", description="")
+public class Order extends Model<Order> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "username", type = IdType.UUID)
-    private String username;
+    @TableId(value = "id")
+    private Integer id;
 
-    private String password;
+    private Integer price;
 
-    private Boolean enabled;
+    private String name;
 
 
     @Override
     protected Serializable pkVal() {
-        return this.username;
+        return this.id;
     }
 
 }

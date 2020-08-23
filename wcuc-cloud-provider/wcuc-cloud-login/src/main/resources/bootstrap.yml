@@ -3,24 +3,61 @@ server:
 spring:
   application:
     name: wcuc-cloud-login
-  zipkin:
-    base-url: http://localhost:9411
-  sleuth:
-    sampler:
-      probability: 1
+  datasource:
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      datasource:
+        master:
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://192.168.56.5:3306/logs?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+          initialSize: 5
+          minIdle: 5
+          maxActive: 20
+#  zipkin:
+#    base-url: http://localhost:9411
+#  sleuth:
+#    sampler:
+#      probability: 1
   cloud:
     nacos:
       discovery:
         server-addr: 192.168.56.5:8848 #nacos 服务注册中心
-      config:
-        server-addr: 192.168.56.5:8848 # 作为配置中心地址
-        file-extension: yaml # 指定yaml格式的配置
-        group: dev_group
-    sentinel:
-      transport:
-        #配置sentinel dashboard的地址
-        dashboard: 192.168.56.5:8080
-        port: 8719
+    alibaba:
+      seata:
+        tx-service-group: wcuc-cloud-login-tx-group
+#      config:
+#        server-addr: 192.168.56.5:8848 # 作为配置中心地址
+#        file-extension: yaml # 指定yaml格式的配置
+#        group: dev_group
+#    sentinel:
+#      transport:
+#        #配置sentinel dashboard的地址
+#        dashboard: 192.168.56.5:8080
+#        port: 8719
+
+seata:
+  enabled: true
+  application-id: wcuc-cloud-login
+  tx-service-group: wcuc-cloud-login-tx-group
+  #enable-auto-data-source-proxy: true
+  client:
+  #  config:
+  #    type: nacos
+  #    nacos:
+  #      namespace: public
+  #      serverAddr: 192.168.56.5
+  #      group: SEATA_GROUP
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 192.168.56.5
+  service:
+    disable-global-transaction: false
+    vgroup-mapping:
+      wcuc-cloud-login-tx-group: default
 logging:
   level:
     com:

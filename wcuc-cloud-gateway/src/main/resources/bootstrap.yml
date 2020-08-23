@@ -26,8 +26,6 @@ spring:
           uri: lb://module-1
           predicates:
             - Path=/module1/**
-
-
 logging:
   level:
     com:
