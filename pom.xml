@@ -26,7 +26,7 @@
         <lombok.version>1.16.14</lombok.version>
         <commons-lang3-version>3.5</commons-lang3-version>
         <commons-codec.version>1.10</commons-codec.version>
-        <fastjson.version>1.2.41</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <druid.version>1.1.12</druid.version>
         <codehaus-jackson.version>1.9.13</codehaus-jackson.version>
         <docker.image.prefix>192.168.56.5:5000</docker.image.prefix>
